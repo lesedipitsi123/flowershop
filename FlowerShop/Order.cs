@@ -17,7 +17,13 @@ namespace FlowerShop
         public double Price {
             get {
               
-                return 0;
+                double total_cost=0;
+                for(int i=0; i< flowers.Count; i++)
+                {
+                    total_cost+= flowers[i].Cost;
+                }
+
+                return total_cost + (0.2 * total_cost);
             }
         }
 
