@@ -18,14 +18,16 @@ namespace Tests
                 // Arrange here ====
                 
                 var orderDAO = Substitute.For<IOrderDAO>();
-                var order = Substitute.For<IOrder, IIdentified>();
+                var client = Substitute.For<IClient>();
                 var flower = Substitute.For<IFlower>();
-                order.AddFlowers(flower, 1);
-                
+                var order = new Order(orderDAO, client);
+
                 // ACT here ====
+
                 order.Deliver();
 
                 // Assertion here ====
+
                 orderDAO.Received().SetDelivered(order);
     
             
